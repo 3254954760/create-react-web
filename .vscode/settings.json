@@ -3,6 +3,8 @@
     "editor.formatOnSave": true,
     "eslint.validate": ["javascript", "typescript", "typescriptreact"],
     "editor.codeActionsOnSave": {
-      "source.fixAll.eslint": true
-    }
+      "source.fixAll.eslint": "explicit"
+    },
+    "files.autoSave": "afterDelay",
+    "files.autoSaveDelay": 1000
 }
