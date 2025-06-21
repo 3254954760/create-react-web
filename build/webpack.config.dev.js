@@ -10,6 +10,12 @@ module.exports = merge(baseConfig, {
         port: 5050,
         host: '0.0.0.0',
         historyApiFallback: true,
-        hot: true
+        hot: true,
+        proxy: {
+            '/api': {
+                target: 'http://localhost:3000',
+                pathRewrite: {'^/api': ''}
+            }
+        }
     }
 });
