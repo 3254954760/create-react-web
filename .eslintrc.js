@@ -1,4 +1,5 @@
 module.exports = {
+    parser: '@typescript-eslint/parser',
     // 优先级高的放后面
     extends: ['eslint:recommended', 'plugin:prettier/recommended', 'prettier'],
     env: {
@@ -6,14 +7,40 @@ module.exports = {
         node: true
     },
     root: true,
-    plugins: ['prettier'],
-
+    plugins: ['@typescript-eslint', 'react-hooks', 'react', 'prettier'],
+    overrides: [
+        {
+            // 针对 build 目录下的 JavaScript 配置文件
+            files: ['build/**/*.js'],
+            parser: 'espree', // 使用默认的 JavaScript 解析器
+            parserOptions: {
+                ecmaVersion: 2021,
+                sourceType: 'module'
+            },
+            rules: {
+                // 禁用 TypeScript 相关规则
+                '@typescript-eslint/no-var-requires': 'off', // 允许 require()
+                '@typescript-eslint/explicit-module-boundary-types': 'off',
+                '@typescript-eslint/no-unsafe-assignment': 'off'
+                // 其他需要禁用的 TypeScript 规则...
+            }
+        },
+        {
+            // 针对 ESLint 配置文件本身
+            files: ['.eslintrc.js'],
+            parser: 'espree',
+            rules: {
+                '@typescript-eslint/no-var-requires': 'off'
+            }
+        }
+    ],
     parserOptions: {
         sourceType: 'module',
         ecmaVersion: 2020,
         ecmaFeatures: {
             jsx: true // 开启 JSX 支持
-        }
+        },
+        project: './tsconfig.json' // 指定 tsconfig 文件路径
     },
     globals: {
         map: true,

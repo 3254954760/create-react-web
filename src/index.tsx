@@ -1,7 +1,10 @@
-import React, {useState} from 'react';
-
-const Root = () => {
-    const [data, setData] = useState(0);
-    return <div>掘金${data}</div>;
+import React, {useState, Suspense} from 'react';
+import {RichRoute, AppRoutes} from './router/routes';
+const APP = () => {
+    return (
+        // <Suspense fallback={<div>loading</div>}>
+            <RichRoute routes={AppRoutes}></RichRoute>
+        // {/* </Suspense> */}
+    );
 };
-export default Root;
+export default APP;

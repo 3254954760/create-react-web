@@ -1,15 +1,16 @@
 {
     "compilerOptions": {
-      "target": "ES6",
-      "lib": ["DOM", "DOM.Iterable", "ESNext"],
-      "jsx": "react-jsx",
-      "module": "ESNext",
-      "moduleResolution": "node",
-      "strict": true,
-      "esModuleInterop": true,
-      "forceConsistentCasingInFileNames": true,
-      "skipLibCheck": true
+        "target": "ES6",
+        "lib": ["DOM", "DOM.Iterable", "ESNext"],
+        "jsx": "react-jsx",
+        "module": "ESNext",
+        "moduleResolution": "node",
+        "strict": true,
+        "esModuleInterop": true,
+        "forceConsistentCasingInFileNames": true,
+        "skipLibCheck": true
     },
     "include": ["src", "App.tsx"],
-    "exclude": ["node_modules"]
+    "exclude": ["node_modules", "build"],
+    "extends": "./tsconfig.paths.json"
 }

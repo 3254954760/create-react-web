@@ -2,7 +2,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const {CleanWebpackPlugin} = require('clean-webpack-plugin');
-
+console.log(path.join(__dirname, '../src/pages'));
 module.exports = {
     entry: {
         main: './App.tsx'
@@ -15,9 +15,12 @@ module.exports = {
     resolve: {
         extensions: ['.tsx', '.ts', '.js', '.jsx', '.less'],
         alias: {
-            '@': path.resolve(__dirname, 'src')
+            // '@': path.resolve(__dirname, 'src'),
+            '@pages': path.resolve(__dirname, '../src/pages'),
+            '@router': path.resolve(__dirname, '../src/router')
         }
     },
+
     module: {
         rules: [
             {
