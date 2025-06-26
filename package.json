@@ -17,10 +17,12 @@
   "dependencies": {
     "@babel/runtime": "^7.27.6",
     "@babel/runtime-corejs3": "^7.27.6",
+    "@sentry/react": "^8.24.0",
     "antd": "^5.24.7",
     "axios": "^1.8.4",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
+    "react-router-config": "^5.1.1",
     "react-router-dom": "5.3.4"
   },
   "devDependencies": {
@@ -32,6 +34,7 @@
     "@babel/preset-react": "^7.24.1",
     "@babel/preset-typescript": "^7.24.3",
     "@types/react": "^19.1.2",
+    "@types/react-router-config": "^5.0.11",
     "@types/react-router-dom": "^5.3.3",
     "@typescript-eslint/eslint-plugin": "^6.21.0",
     "@typescript-eslint/parser": "^6.21.0",
