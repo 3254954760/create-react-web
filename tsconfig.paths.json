@@ -3,7 +3,8 @@
         "baseUrl": ".",
         "paths": {
             "@pages/*": ["./src/pages/*"],
-            "@router/*": ["./src/router/*"]
+            "@router/*": ["./src/router/*"],
+            "@layout/*": ["./src/layout/*"]
         }
     }
 }

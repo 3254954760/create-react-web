@@ -2,62 +2,43 @@ import React, {Suspense} from 'react';
 import * as Sentry from '@sentry/react';
 import {RouteConfig} from 'react-router-config';
 
-import {Route, RouteProps, Switch, BrowserRouter} from 'react-router-dom';
+import {Route, Switch, BrowserRouter} from 'react-router-dom';
 
 const Login = React.lazy(() => import('@pages/login'));
 const Home = React.lazy(() => import('@pages/home'));
+const Layout = React.lazy(() => import('@layout/index'));
+const App = React.lazy(() => import('@pages/app'));
+// todo / 和/home 应该是同一个，并且点击home 路由应该是/
 export enum PATH {
-    HOME = '/',
-    LOGIN = '/login'
+    HOME = '/home',
+    LOGIN = '/login',
+    APP = '/app'
 }
-const SentryRoute = Sentry.withSentryRouting(Route);
+const layoutRoutes = [
+    {
+        path: PATH.HOME,
+        exact: true,
+        component: Home
+    },
+    {
+        path: PATH.APP,
+        component: App
+    }
+] as RouteConfig[];
 
-export const RichRoute = React.memo<{route: RouteConfig[]}>(function RichRoutes({route: routes}) {
-    return (
-        <BrowserRouter>
-            <Switch>
-                {routes.map(route => (
-                    <SentryRoute
-                        key={route.path as React.Key}
-                        path={route.path}
-                        render={props => {
-                            if (!route.component) {
-                                return null;
-                            }
-                            return (
-                                <Suspense
-                                    fallback={
-                                        route.suspenseCompoent ?? (
-                                            <div style={{position: 'absolute', top: '50%', left: '50%'}}>
-                                                loading.........
-                                            </div>
-                                        )
-                                    }
-                                >
-                                    {
-                                        // route.component 其实是做了控制权限下发，做的子路由
-                                    }
-                                    <route.component route={route.routes} {...props} />
-                                </Suspense>
-                            );
-                        }}
-                    />
-                ))}
-            </Switch>
-        </BrowserRouter>
-    );
-});
-export const AppRoutes: RouteConfig[] = [
+export const AppRoutes = [
     {
         path: PATH.LOGIN,
         component: Login
     },
     {
-        path: PATH.HOME,
-        component: Home
+        path: '/',
+        name: 'home',
+        component: Layout,
+        routes: layoutRoutes
     }
     // {
     //     path: '/about',
     //     Component: About
     // }
-];
+] as RouteConfig[];

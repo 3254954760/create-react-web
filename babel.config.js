@@ -40,7 +40,7 @@ module.exports = {
             'babel-plugin-import',
             {
                 libraryName: 'antd',
-                style: true
+                style: false
             },
             'antd'
         ],

@@ -1,10 +1,13 @@
 import React, {useState, Suspense} from 'react';
-import {RichRoute, AppRoutes} from './router/routes';
+import {AppRoutes} from './router/routes';
+import {BrowserRouter} from 'react-router-dom';
+
+import RichRoute from '@router/rich-route';
 const APP = () => {
     return (
-        // <Suspense fallback={<div>loading</div>}>
-        <RichRoute route={AppRoutes}></RichRoute>
-        // {/* </Suspense> */}
+        <BrowserRouter>
+            <RichRoute route={AppRoutes}></RichRoute>
+        </BrowserRouter>
     );
 };
 export default APP;

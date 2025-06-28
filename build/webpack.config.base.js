@@ -2,7 +2,6 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const {CleanWebpackPlugin} = require('clean-webpack-plugin');
-console.log(path.join(__dirname, '../src/pages'));
 module.exports = {
     entry: {
         main: './App.tsx'
@@ -17,7 +16,8 @@ module.exports = {
         alias: {
             // '@': path.resolve(__dirname, 'src'),
             '@pages': path.resolve(__dirname, '../src/pages'),
-            '@router': path.resolve(__dirname, '../src/router')
+            '@router': path.resolve(__dirname, '../src/router'),
+            '@layout': path.resolve(__dirname, '../src/layout')
         }
     },
 
