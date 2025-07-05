@@ -8,11 +8,13 @@ const Login = React.lazy(() => import('@pages/login'));
 const Home = React.lazy(() => import('@pages/home'));
 const Layout = React.lazy(() => import('@layout/index'));
 const App = React.lazy(() => import('@pages/app'));
+const ContextDemo = React.lazy(() => import('@pages/contextDemo'));
 // todo / 和/home 应该是同一个，并且点击home 路由应该是/
 export enum PATH {
     HOME = '/home',
     LOGIN = '/login',
-    APP = '/app'
+    APP = '/app',
+    CONTEXTDEMO = '/contextdemo'
 }
 const layoutRoutes = [
     {
@@ -30,6 +32,10 @@ export const AppRoutes = [
     {
         path: PATH.LOGIN,
         component: Login
+    },
+    {
+        path: PATH.CONTEXTDEMO,
+        component: ContextDemo
     },
     {
         path: '/',
