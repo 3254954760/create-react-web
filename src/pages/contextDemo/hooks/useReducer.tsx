@@ -12,7 +12,7 @@ const setter = (s: any, props: string, value: any) => {
         [props]: value
     };
 };
-type action = 'setSku' | 'setImage' | 'setImageUrl';
+export type action = 'setSku' | 'setImage' | 'setImageUrl';
 type Reducer = (s: State, value?: any) => State;
 export const reducer: {[key in action]: Reducer} = {
     setSku: (state: any, val: any) => setter(state, 'sku', val),
@@ -21,7 +21,7 @@ export const reducer: {[key in action]: Reducer} = {
 };
 
 // 外部传入 dispatch 和 state ，在这里二次封装以下
-export const dispatcher = (state: State, dispatch: (val: {type: action; value?: string}) => void) => {
+export const dispatcher = (state: State, dispatch: (val: {type: action; value?: any}) => void) => {
     return {
         setSku(value: string) {
             dispatch({
