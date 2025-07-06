@@ -23,7 +23,8 @@
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-router-config": "^5.1.1",
-    "react-router-dom": "5.3.4"
+    "react-router-dom": "5.3.4",
+    "zustand": "^5.0.6"
   },
   "devDependencies": {
     "@babel/core": "^7.24.3",
@@ -56,6 +57,7 @@
     "prettier": "^3.2.5",
     "style-loader": "^4.0.0",
     "typescript": "^5.8.3",
+    "vite": "^6.3.5",
     "webpack": "^4.47.0",
     "webpack-bundle-analyzer": "^4.10.2",
     "webpack-cli": "^3.3.12",
