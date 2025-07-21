@@ -1,4 +1,4 @@
-import {PATH} from '@router/routes';
+import { PATH } from '@router/routes';
 export interface NavItem {
     label: string;
     path: string;
@@ -6,7 +6,7 @@ export interface NavItem {
 export const NavList: NavItem[] = [
     {
         label: 'home',
-        path: PATH.HOME
+        path: '/'
     },
     {
         label: 'APP',

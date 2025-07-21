@@ -1,8 +1,8 @@
-import React, {Suspense} from 'react';
+import React, { Suspense } from 'react';
 import * as Sentry from '@sentry/react';
-import {RouteConfig} from 'react-router-config';
+import { RouteConfig } from 'react-router-config';
 
-import {Route, Switch, BrowserRouter} from 'react-router-dom';
+import { Route, Switch, BrowserRouter, Redirect } from 'react-router-dom';
 
 const Login = React.lazy(() => import('@pages/login'));
 const Home = React.lazy(() => import('@pages/home'));
@@ -18,9 +18,13 @@ export enum PATH {
 }
 const layoutRoutes = [
     {
+        path: '/',
+        component: Home
+    },
+    {
         path: PATH.HOME,
         exact: true,
-        component: Home
+        component: () => <Redirect to="/" />
     },
     {
         path: PATH.APP,

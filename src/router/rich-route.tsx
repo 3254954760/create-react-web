@@ -1,12 +1,12 @@
-import React, {Suspense} from 'react';
+import React, { Suspense } from 'react';
 import * as Sentry from '@sentry/react';
-import {RouteConfig} from 'react-router-config';
+import { RouteConfig } from 'react-router-config';
 
-import {Route, Switch, BrowserRouter} from 'react-router-dom';
+import { Route, Switch, BrowserRouter } from 'react-router-dom';
 
 const SentryRoute = Sentry.withSentryRouting(Route);
 
-const RichRoute = React.memo<{route: RouteConfig[]}>(function RichRoutes({route: routes}) {
+const RichRoute = React.memo<{ route: RouteConfig[] }>(function RichRoutes({ route: routes }) {
     return (
         <Switch>
             {routes.map(route => (
@@ -22,7 +22,7 @@ const RichRoute = React.memo<{route: RouteConfig[]}>(function RichRoutes({route:
                             <Suspense
                                 fallback={
                                     route.suspenseCompoent ?? (
-                                        <div style={{position: 'absolute', top: '50%', left: '50%'}}>
+                                        <div style={{ position: 'absolute', top: '50%', left: '50%' }}>
                                             loading.........
                                         </div>
                                     )

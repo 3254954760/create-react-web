@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import {
     MenuFoldOutlined,
     MenuUnfoldOutlined,
@@ -6,21 +6,21 @@ import {
     UserOutlined,
     VideoCameraOutlined
 } from '@ant-design/icons';
-import {Button, Layout, Menu, theme} from 'antd';
-import {useHistory} from 'react-router-dom';
+import { Button, Layout, Menu, theme } from 'antd';
+import { useHistory } from 'react-router-dom';
 
-import {RouteConfig} from 'react-router-config';
-import {NavList, NavItem} from './const';
-const {Header, Sider, Content} = Layout;
+import { RouteConfig } from 'react-router-config';
+import { NavList, NavItem } from './const';
+const { Header, Sider, Content } = Layout;
 import RichRoute from '@router/rich-route';
-const HomeLayout: React.FC<{route: RouteConfig[]}> = function ({route}) {
+const HomeLayout: React.FC<{ route: RouteConfig[] }> = function ({ route }) {
     console.log('ly', route);
     const [num, setNum] = useState<number>(0);
     const history = useHistory<string>();
 
     const [collapsed, setCollapsed] = useState(false);
     const {
-        token: {colorBgContainer, borderRadiusLG}
+        token: { colorBgContainer, borderRadiusLG }
     } = theme.useToken();
 
     const preTopage = (path: string) => {
@@ -57,11 +57,11 @@ const HomeLayout: React.FC<{route: RouteConfig[]}> = function ({route}) {
                 />
             </Sider> */}
             {NavList.map((navItem: NavItem) => {
-                const {label, path} = navItem;
+                const { label, path } = navItem;
                 return <div onClick={() => preTopage(path)}>{label}</div>;
             })}
             <Layout>
-                <Header style={{padding: 0, background: colorBgContainer}}>
+                <Header style={{ padding: 0, background: colorBgContainer }}>
                     <Button
                         type="text"
                         icon={collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
