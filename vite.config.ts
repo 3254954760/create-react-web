@@ -26,5 +26,9 @@ export default defineConfig({
 
     server: {
         port: 5000
+    },
+    build: {
+        outDir: 'dist', // 打包输出目录
+        sourcemap: false // 生产环境是否生成 sourcemap
     }
 });

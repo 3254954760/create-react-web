@@ -8,6 +8,7 @@
         "build": "webpack --config build/webpack.config.prod.js",
         "analyze": "cross-env ANALYZE=true  npm run build",
         "dev": "vite",
+        "vite:build": "vite build",
         "prepare": "husky install"
     },
     "repository": {

@@ -9,18 +9,18 @@ WORKDIR /project
 COPY package*.json /project/
 
 # 安装node_modules
-RUN npm install
+RUN npm install --legacy-peer-deps
 
 # 将所有文件copy到工作目录
 COPY . /project
 
 # 开始打包
-RUN npm run build
+RUN npm run vite:build
 
 # 第二阶段
 # 拉取nginx镜像文件
 FROM nginx
 # 这里的dist文件就是打包好的文件，project是我们上面设置的工作目录
-COPY --from=0 /project/dist /usr/share/nginx/dormitory
+COPY --from=0 /project/dist /usr/share/nginx/creat-react-web
 # default.conf就是我们项目下面的nginx配置文件，我们需要copy到nginx的相应目录
-COPY --from=0 /project/default.conf /etc/nginx/conf.d/dormitory.conf
+COPY --from=0 /project/default.conf /etc/nginx/conf.d/creat-react-web.conf
