@@ -6,7 +6,7 @@ export interface NavItem {
 export const NavList: NavItem[] = [
     {
         label: 'home',
-        path: '/'
+        path: PATH.HOME
     },
     {
         label: 'APP',

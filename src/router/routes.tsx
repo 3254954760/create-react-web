@@ -18,13 +18,8 @@ export enum PATH {
 }
 const layoutRoutes = [
     {
-        path: '/',
-        component: Home
-    },
-    {
         path: PATH.HOME,
-        exact: true,
-        component: () => <Redirect to="/" />
+        component: Home
     },
     {
         path: PATH.APP,
