@@ -1,13 +1,30 @@
-import React, { useState, Suspense } from 'react';
-import { AppRoutes } from './router/routes';
-import { BrowserRouter } from 'react-router-dom';
-
+// App.tsx
+import React from 'react';
+import { BrowserRouter, StaticRouter } from 'react-router-dom';
 import RichRoute from '@router/rich-route';
-const APP = () => {
+import { AppRoutes } from './router/routes';
+
+interface AppProps {
+    location?: string; // SSR 时由服务器传入
+    context?: any; // SSR 时 StaticRouter 需要
+}
+
+const App: React.FC<AppProps> = ({ location, context }) => {
+    if (typeof window === 'undefined') {
+        // SSR 环境：使用 StaticRouter
+        return (
+            <StaticRouter location={location} context={context}>
+                <RichRoute route={AppRoutes} />
+            </StaticRouter>
+        );
+    }
+
+    // CSR 环境：使用 BrowserRouter
     return (
         <BrowserRouter>
-            <RichRoute route={AppRoutes}></RichRoute>
+            <RichRoute route={AppRoutes} />
         </BrowserRouter>
     );
 };
-export default APP;
+
+export default App;
