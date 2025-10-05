@@ -25,7 +25,14 @@ export default defineConfig({
     },
 
     server: {
-        port: 5000
+        port: 5000,
+        proxy: {
+            '/api': {
+                target: 'http://localhost:5050',
+                changeOrigin: true,
+                rewrite: (path) => path.replace(/^\/api/, '')
+            }
+        }
     },
     build: {
         outDir: 'dist', // 打包输出目录

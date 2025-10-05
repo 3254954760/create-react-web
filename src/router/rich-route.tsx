@@ -31,7 +31,7 @@ const RichRoute = React.memo<{ route: RouteConfig[] }>(function RichRoutes({ rou
                                 {
                                     // route.component 其实是做了控制权限下发，做的子路由
                                 }
-                                <route.component route={route.routes} {...props} />
+                                <route.component route={route.routes || []} {...props} />
                             </Suspense>
                         );
                     }}
