@@ -1,12 +1,13 @@
-// 这是vite的入口
-import React from 'react';
-import { createRoot } from 'react-dom/client';
-import App from './index';
+import React, { useState, Suspense } from 'react';
+import { AppRoutes } from './router/routes';
+import { BrowserRouter } from 'react-router-dom';
 
-const rootElement = document.getElementById('root');
-if (rootElement) {
-    const root = createRoot(rootElement);
-    root.render(<App />);
-} else {
-    console.error('Root element not found');
-}
+import RichRoute from '@router/rich-route';
+const APP = () => {
+    return (
+        <BrowserRouter>
+            <RichRoute route={AppRoutes}></RichRoute>
+        </BrowserRouter>
+    );
+};
+export default APP;

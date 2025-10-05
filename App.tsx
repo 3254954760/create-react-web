@@ -1,7 +1,7 @@
 // 这是webpack的入口
 import React from 'react';
 import { createRoot } from 'react-dom/client';
-import App from './src/index';
+import App from './src/App';
 
 const rootElement = document.getElementById('root');
 if (rootElement) {
