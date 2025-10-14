@@ -12,7 +12,7 @@ const ContextDemo = React.lazy(() => import('@pages/contextDemo'));
 const FileUpload = React.lazy(() => import('@pages/file-upload'));
 // todo / 和/home 应该是同一个，并且点击home 路由应该是/
 export enum PATH {
-    HOME = '/home',
+    HOME = '/',
     LOGIN = '/login',
     APP = '/app',
     CONTEXTDEMO = '/contextdemo',
@@ -20,12 +20,12 @@ export enum PATH {
 }
 const layoutRoutes = [
     {
-        path: PATH.HOME,
-        component: Home
-    },
-    {
         path: PATH.APP,
         component: App
+    },
+    {
+        path: PATH.HOME,
+        component: Home
     }
 ] as RouteConfig[];
 
