@@ -3,7 +3,7 @@ import * as Sentry from '@sentry/react';
 import { RouteConfig } from 'react-router-config';
 
 import { Route, Switch, BrowserRouter, Redirect } from 'react-router-dom';
-
+const ScanAuthLogin = React.lazy(() => import('@pages/login/scan_auth_login'));
 const Login = React.lazy(() => import('@pages/login'));
 const Home = React.lazy(() => import('@pages/home'));
 const Layout = React.lazy(() => import('@layout/index'));
@@ -14,6 +14,7 @@ const FileUpload = React.lazy(() => import('@pages/file-upload'));
 export enum PATH {
     HOME = '/',
     LOGIN = '/login',
+    AUTH_LOGIN = '/scan-auth-login',
     APP = '/app',
     CONTEXTDEMO = '/contextdemo',
     FILE_UPLOAD = '/file-upload'
@@ -33,6 +34,10 @@ export const AppRoutes = [
     {
         path: PATH.LOGIN,
         component: Login
+    },
+    {
+        path: PATH.AUTH_LOGIN,
+        component: ScanAuthLogin
     },
     {
         path: PATH.CONTEXTDEMO,

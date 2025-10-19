@@ -16,10 +16,12 @@ const FileUpload = () => {
         return chunks;
     };
     const handleUploadFile = useCallback(() => {
-        const chunks = sliceFile(file as File, UPLOAD_CHUNK_SIZE);
+        if (!file) return;
+
+        const chunks = sliceFile(file, UPLOAD_CHUNK_SIZE);
         const listFetch = chunks.map((chunk, index) => {
             const formData = new FormData();
-            formData.append('filename', file?.name || '');
+            formData.append('filename', file.name);
             formData.append('index', index.toString());
             formData.append('total', chunks.length.toString());
             // 这一句一定要写在最后面，应为multer中间件会优先解析file，解析了file之后，formData.append('file', chunk);就解析不了了
@@ -29,12 +31,20 @@ const FileUpload = () => {
                 body: formData
             });
         });
-        Promise.all(listFetch).then((res: any) => {
-            setCanMerge(true);
-        });
+        Promise.all(listFetch)
+            .then((res: any) => {
+                console.log('所有分片上传完成');
+                setCanMerge(true);
+            })
+            .catch(error => {
+                console.error('上传失败:', error);
+            });
     }, [file]);
 
     const handleMerge = () => {
+        if (!file) return;
+
+        const chunks = sliceFile(file, UPLOAD_CHUNK_SIZE);
         console.log('合并文件');
         fetch('/api/merge-file', {
             method: 'POST',
@@ -42,19 +52,39 @@ const FileUpload = () => {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                filename: file?.name
+                filename: file.name,
+                total: chunks.length
             })
-        }).then((res: any) => {
-            console.log(res);
-        });
+        })
+            .then((res: any) => {
+                console.log('文件合并完成:', res);
+                setCanMerge(false); // 重置状态
+            })
+            .catch(error => {
+                console.error('合并失败:', error);
+            });
     };
 
     return (
         <>
             <div>FileUpload</div>
-            <Input type="file" onChange={handleFileChange} />
-            <Button onClick={handleUploadFile}>上传</Button>
-            {canMerge && <Button onClick={handleMerge}>合并文件</Button>}
+            <input type="file" onChange={handleFileChange} />
+            <Button onClick={handleUploadFile} disabled={!file}>
+                上传分片
+            </Button>
+            {canMerge && (
+                <Button onClick={handleMerge} type="primary">
+                    合并文件
+                </Button>
+            )}
+            {file && (
+                <div style={{ marginTop: '16px' }}>
+                    <p>文件名: {file.name}</p>
+                    <p>文件大小: {(file.size / 1024).toFixed(2)} KB</p>
+                    <p>分片数量: {Math.ceil(file.size / UPLOAD_CHUNK_SIZE)}</p>
+                    {canMerge && <p style={{ color: 'green' }}>✅ 分片上传完成，可以合并文件</p>}
+                </div>
+            )}
         </>
     );
 };

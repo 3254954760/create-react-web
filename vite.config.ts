@@ -26,6 +26,7 @@ export default defineConfig({
 
     server: {
         port: 5000,
+        host: '0.0.0.0', // 允许外部访问 并且设置这个之后 可以访问到本地的ip地址
         proxy: {
             '/api': {
                 target: 'http://localhost:5050',
