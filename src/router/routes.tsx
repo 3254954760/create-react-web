@@ -10,7 +10,7 @@ const Layout = React.lazy(() => import('@layout/index'));
 const App = React.lazy(() => import('@pages/app'));
 const ContextDemo = React.lazy(() => import('@pages/contextDemo'));
 const FileUpload = React.lazy(() => import('@pages/file-upload'));
-// todo / 和/home 应该是同一个，并且点击home 路由应该是/
+//  / 和/home 应该是同一个，并且点击home 路由应该是/
 export enum PATH {
     HOME = '/',
     LOGIN = '/login',

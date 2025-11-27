@@ -14,8 +14,6 @@ import { NavList, NavItem } from './const';
 const { Header, Sider, Content } = Layout;
 import RichRoute from '@router/rich-route';
 const HomeLayout: React.FC<{ route: RouteConfig[] }> = function ({ route }) {
-    console.log('ly', route);
-    const [num, setNum] = useState<number>(0);
     const history = useHistory<string>();
 
     const [collapsed, setCollapsed] = useState(false);
@@ -24,8 +22,6 @@ const HomeLayout: React.FC<{ route: RouteConfig[] }> = function ({ route }) {
     } = theme.useToken();
 
     const preTopage = (path: string) => {
-        const newNumber = num + 1;
-        setNum(newNumber);
         history.push(path);
     };
 
@@ -73,7 +69,6 @@ const HomeLayout: React.FC<{ route: RouteConfig[] }> = function ({ route }) {
                         }}
                     />
                 </Header>
-                {num}
                 <RichRoute route={route} />
             </Layout>
         </Layout>
