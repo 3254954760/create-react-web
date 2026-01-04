@@ -1,5 +1,5 @@
 import React, { useEffect, useState, Key } from 'react';
-import { Tree, TreeDataNode, TreeProps } from 'antd';
+import { Button, Tree, TreeDataNode, TreeProps } from 'antd';
 import { RightOutlined, SettingOutlined } from '@ant-design/icons';
 import { useHistory } from 'react-router-dom';
 
@@ -297,12 +297,21 @@ const Home = () => {
     const onDragLeave: TreeProps['onDragLeave'] = (info: any) => {
         console.log('onDragLeave', info);
     };
+    const getAddData = () => {
+        fetch('/api/add')
+            .then(res => res.json())
+            .then(data => {
+                console.log('data', data);
+            });
+    };
+
     return (
         <>
             <div>home</div>
 
             <div onClick={() => setState(state + 1)}>销毁重建</div>
             <button onClick={goLogin}>去登录</button>
+            <Button onClick={() => getAddData()}>++++++</Button>
             <Tree
                 treeData={treeData}
                 defaultExpandedKeys={['system-user', 'content-comment']}
