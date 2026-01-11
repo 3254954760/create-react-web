@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Card, Button, Space, Typography, Divider, Tag, Row, Col, Statistic } from 'antd';
-import { GlobalOutlined, CheckCircleOutlined, UserOutlined } from '@ant-design/icons';
-import { useTranslation } from 'react-i18next';
+import { GlobalOutlined, CheckCircleOutlined, UserOutlined, LinkOutlined } from '@ant-design/icons';
+import { useTranslation, Trans } from 'react-i18next';
 import styles from './index.module.less';
 
 const { Title, Paragraph, Text } = Typography;
@@ -11,9 +11,19 @@ const LanguageSwitch: React.FC = () => {
     const currentLang = i18n.language || 'zh';
     const [userCount, setUserCount] = useState(5);
     const [userName] = useState('张三');
+    const [licensePrice] = useState(99.99);
+    const [licensePriceCycle, setLicensePriceCycle] = useState<'daily' | 'monthly' | 'yearly'>('monthly');
 
     const switchLanguage = (lang: 'zh' | 'en') => {
         i18n.changeLanguage(lang);
+    };
+
+    // 格式化货币
+    const formatCurrency = (value: number) => {
+        return new Intl.NumberFormat(currentLang === 'zh' ? 'zh-CN' : 'en-US', {
+            style: 'currency',
+            currency: currentLang === 'zh' ? 'CNY' : 'USD'
+        }).format(value);
     };
 
     return (
@@ -104,6 +114,203 @@ const LanguageSwitch: React.FC = () => {
                                     value={userCount}
                                     prefix={<UserOutlined />}
                                 />
+                            </Card>
+                        </Space>
+
+                        {/* Trans 组件示例 */}
+                        <Divider orientation="left">Trans 组件示例（JSX 元素替换）</Divider>
+                        <Space direction="vertical" size="middle" style={{ width: '100%' }}>
+                            <Card size="small">
+                                <Title level={5}>1. 基本用法 - 链接替换</Title>
+                                <Trans
+                                    i18nKey="language.demo.transExample1"
+                                    ns="main"
+                                    components={[
+                                        <a
+                                            key="0"
+                                            href="#"
+                                            onClick={e => {
+                                                e.preventDefault();
+                                                alert('点击了链接');
+                                            }}
+                                        >
+                                            这里
+                                        </a>
+                                    ]}
+                                />
+                            </Card>
+
+                            <Card size="small">
+                                <Title level={5}>2. 多个元素替换 + 参数</Title>
+                                <Trans
+                                    i18nKey="language.demo.transExample2"
+                                    ns="main"
+                                    values={{ name: userName, count: userCount }}
+                                    components={[
+                                        <span key="0" />, // 占位符，不会被使用
+                                        <Tag key="1" color="blue">
+                                            {userName}
+                                        </Tag>,
+                                        <Tag key="2" color="red">
+                                            {userCount}
+                                        </Tag>
+                                    ]}
+                                />
+                            </Card>
+
+                            <Card size="small">
+                                <Title level={5}>3. 多个链接替换</Title>
+                                <Trans
+                                    i18nKey="language.demo.transExample3"
+                                    ns="main"
+                                    components={[
+                                        <a
+                                            key="0"
+                                            href="#"
+                                            onClick={e => {
+                                                e.preventDefault();
+                                                alert('服务条款');
+                                            }}
+                                        >
+                                            服务条款
+                                        </a>,
+                                        <a
+                                            key="1"
+                                            href="#"
+                                            onClick={e => {
+                                                e.preventDefault();
+                                                alert('隐私政策');
+                                            }}
+                                        >
+                                            隐私政策
+                                        </a>
+                                    ]}
+                                />
+                            </Card>
+
+                            <Card size="small">
+                                <Title level={5}>4. 样式元素替换</Title>
+                                <Trans
+                                    i18nKey="language.demo.transExample4"
+                                    ns="main"
+                                    components={[<strong key="0" />, <em key="1" />]}
+                                />
+                            </Card>
+
+                            <Card size="small">
+                                <Title level={5}>5. 按钮元素替换</Title>
+                                <Trans
+                                    i18nKey="language.demo.transExample5"
+                                    ns="main"
+                                    components={[
+                                        <Button key="0" type="primary" size="small" onClick={() => alert('提交成功')}>
+                                            提交
+                                        </Button>
+                                    ]}
+                                />
+                            </Card>
+                        </Space>
+
+                        {/* Trans 组件 - 对象语法写法（类似用户提供的示例） */}
+                        <Divider orientation="left">Trans 组件 - 对象语法写法</Divider>
+                        <Space direction="vertical" size="middle" style={{ width: '100%' }}>
+                            <Card size="small">
+                                <Title level={5}>1. 对象语法 - 价格和周期（类似您的示例）</Title>
+                                <Trans
+                                    i18nKey="language.demo.licensePrice"
+                                    ns="main"
+                                    values={{
+                                        price: formatCurrency(licensePrice),
+                                        period: {
+                                            daily: t('language.demo.dailyPeriod'),
+                                            monthly: t('language.demo.monthlyPeriod'),
+                                            yearly: t('language.demo.yearlyPeriod')
+                                        }[licensePriceCycle]
+                                    }}
+                                />
+                                <div style={{ marginTop: 8 }}>
+                                    <Space>
+                                        <Button size="small" onClick={() => setLicensePriceCycle('daily')}>
+                                            {t('language.demo.dailyPeriod')}
+                                        </Button>
+                                        <Button size="small" onClick={() => setLicensePriceCycle('monthly')}>
+                                            {t('language.demo.monthlyPeriod')}
+                                        </Button>
+                                        <Button size="small" onClick={() => setLicensePriceCycle('yearly')}>
+                                            {t('language.demo.yearlyPeriod')}
+                                        </Button>
+                                    </Space>
+                                </div>
+                            </Card>
+
+                            <Card size="small">
+                                <Title level={5}>2. 对象语法 + JSX 元素替换</Title>
+                                <Trans
+                                    i18nKey="language.demo.productPrice"
+                                    ns="main"
+                                    values={{
+                                        price: formatCurrency(licensePrice),
+                                        period: {
+                                            daily: t('language.demo.dailyPeriod'),
+                                            monthly: t('language.demo.monthlyPeriod'),
+                                            yearly: t('language.demo.yearlyPeriod')
+                                        }[licensePriceCycle]
+                                    }}
+                                    components={[
+                                        <Text
+                                            key="0"
+                                            style={{ color: '#1890ff', fontSize: '16px', fontWeight: 'bold' }}
+                                        />,
+                                        <Tag key="1" color="green" />
+                                    ]}
+                                />
+                            </Card>
+
+                            <Card size="small">
+                                <Title level={5}>3. 对象语法 + 多个 JSX 元素</Title>
+                                <Trans
+                                    i18nKey="language.demo.userStatus"
+                                    ns="main"
+                                    values={{
+                                        name: userName,
+                                        status: '活跃'
+                                    }}
+                                    components={[<Tag key="0" color="blue" />, <Tag key="1" color="success" />]}
+                                />
+                            </Card>
+
+                            <Card size="small">
+                                <Title level={5}>4. 您示例的简化版本（如果支持对象语法）</Title>
+                                <Paragraph type="secondary" style={{ fontSize: '12px' }}>
+                                    注意：标准的 react-i18next Trans 组件使用 values prop 传递参数。
+                                    如果您的项目中有自定义的 Trans 组件支持对象语法，可以这样写：
+                                </Paragraph>
+                                <div
+                                    style={{
+                                        background: '#f5f5f5',
+                                        padding: '12px',
+                                        borderRadius: '4px',
+                                        fontFamily: 'monospace',
+                                        fontSize: '12px'
+                                    }}
+                                >
+                                    {`<Trans 
+  i18nKey="language.demo.licensePrice" 
+  price={licensePrice} 
+  period={licensePriceCycle}
+>
+  <Text style={{ color: '#F0484E' }}>
+    {{ price: formatCurrency(licensePrice) }}
+  </Text>
+  {{
+    period: {
+      daily: t('language.demo.dailyPeriod'),
+      monthly: t('language.demo.monthlyPeriod'),
+      yearly: t('language.demo.yearlyPeriod'),
+    }[licensePriceCycle],
+  }}
+</Trans>`}
+                                </div>
                             </Card>
                         </Space>
                     </div>

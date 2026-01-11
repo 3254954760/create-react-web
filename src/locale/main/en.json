@@ -100,7 +100,18 @@
       "systemSettings": "System Settings Module",
       "userInfo": "{{username}}'s {{type}} information",
       "itemCount": "{{count}} item",
-      "itemCount_plural": "{{count}} items"
+      "itemCount_plural": "{{count}} items",
+      "transExample1": "Click <0>here</0> to learn more",
+      "transExample2": "Welcome <1>{{name}}</1>, you have <2>{{count}}</2> unread messages",
+      "transExample3": "Please read our <0>Terms of Service</0> and <1>Privacy Policy</1>",
+      "transExample4": "This is an example with <strong>bold</strong> text and <em>italic</em> text",
+      "transExample5": "Click the <button>Submit</button> button to complete the operation",
+      "licensePrice": "License Price: {{price}} / {{period}}",
+      "productPrice": "Product price <0>{{price}}</0>, valid for <1>{{period}}</1>",
+      "userStatus": "User <0>{{name}}</0> status is <1>{{status}}</1>",
+      "dailyPeriod": "Daily",
+      "monthlyPeriod": "Monthly",
+      "yearlyPeriod": "Yearly"
     }
   }
 }

@@ -100,7 +100,18 @@
       "systemSettings": "系统设置模块",
       "userInfo": "用户 {{username}} 的{{type}}信息",
       "itemCount": "共 {{count}} 项",
-      "itemCount_plural": "共 {{count}} 项"
+      "itemCount_plural": "共 {{count}} 项",
+      "transExample1": "点击 <0>这里</0> 了解更多信息",
+      "transExample2": "欢迎 <1>{{name}}</1>，您有 <2>{{count}}</2> 条未读消息",
+      "transExample3": "请阅读我们的 <0>服务条款</0> 和 <1>隐私政策</1>",
+      "transExample4": "这是一个 <strong>加粗</strong> 文本和 <em>斜体</em> 文本的示例",
+      "transExample5": "点击 <button>提交</button> 按钮完成操作",
+      "licensePrice": "许可证价格：{{price}} / {{period}}",
+      "productPrice": "产品价格 <0>{{price}}</0>，有效期 <1>{{period}}</1>",
+      "userStatus": "用户 <0>{{name}}</0> 的状态是 <1>{{status}}</1>",
+      "dailyPeriod": "每日",
+      "monthlyPeriod": "每月",
+      "yearlyPeriod": "每年"
     }
   }
 }
