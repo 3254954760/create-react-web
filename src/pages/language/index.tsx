@@ -295,21 +295,21 @@ const LanguageSwitch: React.FC = () => {
                                     }}
                                 >
                                     {`<Trans 
-  i18nKey="language.demo.licensePrice" 
-  price={licensePrice} 
-  period={licensePriceCycle}
->
-  <Text style={{ color: '#F0484E' }}>
-    {{ price: formatCurrency(licensePrice) }}
-  </Text>
-  {{
-    period: {
-      daily: t('language.demo.dailyPeriod'),
-      monthly: t('language.demo.monthlyPeriod'),
-      yearly: t('language.demo.yearlyPeriod'),
-    }[licensePriceCycle],
-  }}
-</Trans>`}
+                                        i18nKey="language.demo.licensePrice" 
+                                        price={licensePrice} 
+                                        period={licensePriceCycle}
+                                        >
+                                        <Text style={{ color: '#F0484E' }}>
+                                            {{ price: formatCurrency(licensePrice) }}
+                                        </Text>
+                                        {{
+                                            period: {
+                                            daily: t('language.demo.dailyPeriod'),
+                                            monthly: t('language.demo.monthlyPeriod'),
+                                            yearly: t('language.demo.yearlyPeriod'),
+                                            }[licensePriceCycle],
+                                        }}
+                                        </Trans>`}
                                 </div>
                             </Card>
                         </Space>
