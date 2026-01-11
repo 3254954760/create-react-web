@@ -81,6 +81,12 @@
     "english": "English",
     "description": "这是一个国际化演示页面，您可以通过切换语言来查看不同语言下的内容展示。",
     "welcome": "欢迎使用国际化功能",
+    "welcomeWithName": "欢迎，{{name}}！",
+    "userCount": "共有 {{count}} 个用户",
+    "userCount_plural": "共有 {{count}} 个用户",
+    "lastLogin": "最后登录时间：{{date, datetime}}",
+    "message": "您有 {{count}} 条{{count, plural, =0 {消息} =1 {消息} other {消息}}",
+    "price": "价格：{{value, currency}}",
     "features": {
       "title": "功能特点",
       "item1": "支持多语言切换",
@@ -91,7 +97,10 @@
       "title": "演示内容",
       "systemManagement": "系统管理模块",
       "contentManagement": "内容管理模块",
-      "systemSettings": "系统设置模块"
+      "systemSettings": "系统设置模块",
+      "userInfo": "用户 {{username}} 的{{type}}信息",
+      "itemCount": "共 {{count}} 项",
+      "itemCount_plural": "共 {{count}} 项"
     }
   }
 }

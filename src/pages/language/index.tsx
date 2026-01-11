@@ -1,6 +1,6 @@
-import React from 'react';
-import { Card, Button, Space, Typography, Divider, Tag, Row, Col } from 'antd';
-import { GlobalOutlined, CheckCircleOutlined } from '@ant-design/icons';
+import React, { useState } from 'react';
+import { Card, Button, Space, Typography, Divider, Tag, Row, Col, Statistic } from 'antd';
+import { GlobalOutlined, CheckCircleOutlined, UserOutlined } from '@ant-design/icons';
 import { useTranslation } from 'react-i18next';
 import styles from './index.module.less';
 
@@ -9,6 +9,8 @@ const { Title, Paragraph, Text } = Typography;
 const LanguageSwitch: React.FC = () => {
     const { t, i18n } = useTranslation('main');
     const currentLang = i18n.language || 'zh';
+    const [userCount, setUserCount] = useState(5);
+    const [userName] = useState('张三');
 
     const switchLanguage = (lang: 'zh' | 'en') => {
         i18n.changeLanguage(lang);
@@ -55,6 +57,55 @@ const LanguageSwitch: React.FC = () => {
                     <div className={styles.contentSection}>
                         <Title level={3}>{t('language.welcome')}</Title>
                         <Paragraph>{t('language.description')}</Paragraph>
+
+                        {/* 带参数的翻译示例 */}
+                        <Divider orientation="left">带参数的翻译示例</Divider>
+                        <Space direction="vertical" size="middle" style={{ width: '100%' }}>
+                            <Card size="small">
+                                <Title level={5}>1. 基本插值（变量替换）</Title>
+                                <Text>{t('language.welcomeWithName', { name: userName })}</Text>
+                            </Card>
+
+                            <Card size="small">
+                                <Title level={5}>2. 数字插值</Title>
+                                <Space>
+                                    <Text>{t('language.userCount', { count: userCount })}</Text>
+                                    <Button size="small" onClick={() => setUserCount(userCount + 1)}>
+                                        +1
+                                    </Button>
+                                    <Button size="small" onClick={() => setUserCount(Math.max(0, userCount - 1))}>
+                                        -1
+                                    </Button>
+                                </Space>
+                            </Card>
+
+                            <Card size="small">
+                                <Title level={5}>3. 复数形式</Title>
+                                <Text>{t('language.message', { count: userCount })}</Text>
+                            </Card>
+
+                            <Card size="small">
+                                <Title level={5}>4. 多个参数</Title>
+                                <Text>{t('language.demo.userInfo', { username: userName, type: '个人' })}</Text>
+                            </Card>
+
+                            <Card size="small">
+                                <Title level={5}>5. 格式化（日期、货币等）</Title>
+                                <Space direction="vertical">
+                                    <Text>{t('language.lastLogin', { date: new Date() })}</Text>
+                                    <Text>{t('language.price', { value: 99.99 })}</Text>
+                                </Space>
+                            </Card>
+
+                            <Card size="small">
+                                <Title level={5}>6. 动态计数</Title>
+                                <Statistic
+                                    title={t('language.demo.itemCount', { count: userCount })}
+                                    value={userCount}
+                                    prefix={<UserOutlined />}
+                                />
+                            </Card>
+                        </Space>
                     </div>
 
                     {/* 功能特点 */}

@@ -81,6 +81,12 @@
     "english": "English",
     "description": "This is an internationalization demo page. You can view content in different languages by switching languages.",
     "welcome": "Welcome to Internationalization",
+    "welcomeWithName": "Welcome, {{name}}!",
+    "userCount": "There is {{count}} user",
+    "userCount_plural": "There are {{count}} users",
+    "lastLogin": "Last login: {{date, datetime}}",
+    "message": "You have {{count}} {{count, plural, =0 {messages} =1 {message} other {messages}}",
+    "price": "Price: {{value, currency}}",
     "features": {
       "title": "Features",
       "item1": "Multi-language support",
@@ -91,7 +97,10 @@
       "title": "Demo Content",
       "systemManagement": "System Management Module",
       "contentManagement": "Content Management Module",
-      "systemSettings": "System Settings Module"
+      "systemSettings": "System Settings Module",
+      "userInfo": "{{username}}'s {{type}} information",
+      "itemCount": "{{count}} item",
+      "itemCount_plural": "{{count}} items"
     }
   }
 }
