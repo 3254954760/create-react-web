@@ -1,0 +1,20 @@
+{
+  "status": {
+    "unauthorized": "Unauthorized",
+    "authorized": "Authorized",
+    "timeout": "Timeout"
+  },
+  "title": "Login",
+  "qrcode": {
+    "title": "Scan QR Code to Login",
+    "description": "Please scan the QR code with your mobile phone to login",
+    "alt": "QR Code"
+  },
+  "scanAuth": {
+    "title": "Scan to Authorize Login",
+    "success": "Authorization Successful",
+    "failed": "Authorization Failed",
+    "expired": "QR code has expired, please refresh and try again"
+  }
+}
+

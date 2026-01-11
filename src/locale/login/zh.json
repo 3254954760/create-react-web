@@ -1,0 +1,20 @@
+{
+  "status": {
+    "unauthorized": "未授权",
+    "authorized": "已授权",
+    "timeout": "超时"
+  },
+  "title": "登录",
+  "qrcode": {
+    "title": "扫码登录",
+    "description": "请使用手机扫描二维码进行登录",
+    "alt": "二维码"
+  },
+  "scanAuth": {
+    "title": "扫码授权登录",
+    "success": "授权成功",
+    "failed": "授权失败",
+    "expired": "二维码已过期，请刷新重试"
+  }
+}
+

@@ -11,7 +11,8 @@ export default defineConfig({
             '@router': path.resolve(__dirname, './src/router'),
             '@layout': path.resolve(__dirname, './src/layout'),
             '@model': path.resolve(__dirname, './src/model'),
-            '@service': path.resolve(__dirname, './src/service')
+            '@service': path.resolve(__dirname, './src/service'),
+            '@locale': path.resolve(__dirname, './src/locale'),
         },
         extensions: ['.js', '.ts', '.jsx', '.tsx']
     },

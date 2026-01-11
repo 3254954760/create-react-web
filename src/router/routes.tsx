@@ -10,6 +10,7 @@ const Layout = React.lazy(() => import('@layout/index'));
 const App = React.lazy(() => import('@pages/app'));
 const ContextDemo = React.lazy(() => import('@pages/contextDemo'));
 const FileUpload = React.lazy(() => import('@pages/file-upload'));
+const LanguageSwitch = React.lazy(() => import('@pages/language'));
 //  / 和/home 应该是同一个，并且点击home 路由应该是/
 export enum PATH {
     HOME = '/',
@@ -17,7 +18,8 @@ export enum PATH {
     AUTH_LOGIN = '/scan-auth-login',
     APP = '/app',
     CONTEXTDEMO = '/contextdemo',
-    FILE_UPLOAD = '/file-upload'
+    FILE_UPLOAD = '/file-upload',
+    LANGUAGE = '/language'
 }
 const layoutRoutes = [
     {
@@ -46,6 +48,10 @@ export const AppRoutes = [
     {
         path: PATH.FILE_UPLOAD,
         component: FileUpload
+    },
+    {
+        path: PATH.LANGUAGE,
+        component: LanguageSwitch
     },
     {
         path: '/',

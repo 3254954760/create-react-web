@@ -1,0 +1,98 @@
+{
+  "nav": {
+    "home": "首页",
+    "app": "应用"
+  },
+  "common": {
+    "destroy": "销毁重建",
+    "goLogin": "去登录",
+    "count": "计数",
+    "increment": "增加",
+    "confirm": "确认",
+    "cancel": "取消",
+    "submit": "提交",
+    "reset": "重置",
+    "search": "搜索",
+    "add": "新增",
+    "edit": "编辑",
+    "delete": "删除",
+    "save": "保存",
+    "back": "返回",
+    "loading": "加载中...",
+    "noData": "暂无数据",
+    "operation": "操作",
+    "success": "成功",
+    "failed": "失败",
+    "error": "错误"
+  },
+  "system": {
+    "title": "系统管理",
+    "user": {
+      "title": "用户管理",
+      "list": "用户列表",
+      "permission": "用户权限"
+    },
+    "role": {
+      "title": "角色管理",
+      "list": "角色列表",
+      "config": "角色配置"
+    }
+  },
+  "content": {
+    "title": "内容管理",
+    "article": {
+      "title": "文章管理",
+      "list": "文章列表",
+      "category": "文章分类"
+    },
+    "comment": {
+      "title": "评论管理",
+      "audit": "评论审核",
+      "list": "评论列表"
+    }
+  },
+  "settings": {
+    "title": "系统设置",
+    "system": {
+      "title": "系统配置",
+      "basic": "基础设置",
+      "advanced": "高级设置"
+    },
+    "personal": {
+      "title": "个人设置",
+      "account": "账号设置",
+      "privacy": "隐私设置"
+    }
+  },
+  "layout": {
+    "header": {
+      "collapse": "收起",
+      "expand": "展开"
+    },
+    "sider": {
+      "menu": "菜单"
+    }
+  },
+  "language": {
+    "title": "语言设置",
+    "switch": "切换语言",
+    "current": "当前语言",
+    "chinese": "中文",
+    "english": "English",
+    "description": "这是一个国际化演示页面，您可以通过切换语言来查看不同语言下的内容展示。",
+    "welcome": "欢迎使用国际化功能",
+    "features": {
+      "title": "功能特点",
+      "item1": "支持多语言切换",
+      "item2": "实时语言更新",
+      "item3": "完整的国际化方案"
+    },
+    "demo": {
+      "title": "演示内容",
+      "systemManagement": "系统管理模块",
+      "contentManagement": "内容管理模块",
+      "systemSettings": "系统设置模块"
+    }
+  }
+}
+
