@@ -1,0 +1,13 @@
+{
+    "name": "@create-react-web/hook",
+    "version": "1.0.0",
+    "description": "Hook for create-react-web",
+    "main": "index.ts",
+    "types": "index.ts",
+    "scripts": {
+        "build": "tsc"
+    },
+    "dependencies": {
+        "react": "^18.3.1"
+    }
+}

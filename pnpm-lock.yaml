@@ -14,6 +14,12 @@ importers:
       '@babel/runtime-corejs3':
         specifier: ^7.27.6
         version: 7.28.4
+      '@create-react-web/hook':
+        specifier: workspace:*
+        version: link:package/Hook
+      '@create-react-web/ui':
+        specifier: workspace:*
+        version: link:package/UI
       '@sentry/react':
         specifier: ^8.24.0
         version: 8.55.0(react@18.3.1)
@@ -162,6 +168,18 @@ importers:
       webpack-merge:
         specifier: ^4.2.2
         version: 4.2.2
+
+  package/Hook:
+    dependencies:
+      react:
+        specifier: ^18.3.1
+        version: 18.3.1
+
+  package/UI:
+    dependencies:
+      react:
+        specifier: ^18.3.1
+        version: 18.3.1
 
 packages:
 
