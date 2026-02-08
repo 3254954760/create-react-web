@@ -5,6 +5,7 @@ import { RouteConfig } from 'react-router-config';
 import { Route, Switch, BrowserRouter, Redirect } from 'react-router-dom';
 const ScanAuthLogin = React.lazy(() => import('@pages/login/scan_auth_login'));
 const Login = React.lazy(() => import('@pages/login'));
+const GitHubCallback = React.lazy(() => import('@pages/login/GitHubCallback'));
 const Home = React.lazy(() => import('@pages/home'));
 const Layout = React.lazy(() => import('@layout/index'));
 const App = React.lazy(() => import('@pages/app'));
@@ -16,6 +17,7 @@ export enum PATH {
     HOME = '/',
     LOGIN = '/login',
     AUTH_LOGIN = '/scan-auth-login',
+    GITHUB_CALLBACK = '/auth/github/callback',
     APP = '/app',
     CONTEXTDEMO = '/contextdemo',
     FILE_UPLOAD = '/file-upload',
@@ -36,6 +38,10 @@ export const AppRoutes = [
     {
         path: PATH.LOGIN,
         component: Login
+    },
+    {
+        path: PATH.GITHUB_CALLBACK,
+        component: GitHubCallback
     },
     {
         path: PATH.AUTH_LOGIN,

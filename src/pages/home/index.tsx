@@ -2,6 +2,9 @@ import React, { useEffect, useState, Key } from 'react';
 import { Button, Tree, TreeDataNode, TreeProps } from 'antd';
 import { RightOutlined, SettingOutlined } from '@ant-design/icons';
 import { useHistory } from 'react-router-dom';
+import { githubTest } from '@/service/Login';
+import jsCookie from 'js-cookie';
+import axios from '@service/Axios';
 
 const Home = () => {
     const history = useHistory();
@@ -305,12 +308,23 @@ const Home = () => {
             });
     };
 
+    useEffect(() => {
+        const token = jsCookie.get('token');
+        console.log('token', token);
+        axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+    }, []);
+
+    const getUserInfo = async () => {
+        const res = await githubTest();
+        console.log('res', res);
+    };
     return (
         <>
             <div>home</div>
 
             <div onClick={() => setState(state + 1)}>销毁重建</div>
             <button onClick={goLogin}>去登录</button>
+            <button onClick={() => getUserInfo()}>获取用户信息</button>
             <Button onClick={() => getAddData()}>++++++</Button>
             <Tree
                 treeData={treeData}

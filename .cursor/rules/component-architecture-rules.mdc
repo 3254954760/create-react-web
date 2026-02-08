@@ -18,12 +18,12 @@ alwaysApply: true
 
 1. 纯 UI 展示组件：`XxxUI`
 2. 副作用与逻辑封装：`useXxx`
-3. 外层组合组件：`XxxComponent`
+3. 外层组合组件：`Xxx`
 
 心智模型：
 
 ```
-XxxComponent
+Xxx
    ↓ 调用
 useXxx
    ↓ 返回数据 + 回调
@@ -148,14 +148,14 @@ useXxx
 
 ---
 
-## 四、外层组合组件规则（XxxComponent）
+## 四、外层组合组件规则（Xxx）
 
 ### 1. 命名规则（强制）
 
 * 外层组合组件 **必须命名为**：
 
 ```
-XxxComponent
+Xxx
 ```
 
 例如：
@@ -168,7 +168,7 @@ XxxComponent
 
 ### 2. 职责边界（强制）
 
-`XxxComponent` 负责：
+`Xxx` 负责：
 
 * 调用 `useXxx`
 * 把数据与回调传给 `XxxUI`
@@ -178,7 +178,7 @@ XxxComponent
 
 ### 3. 禁止做的事情（强制）
 
-`XxxComponent` 中 **不应该**：
+`Xxx` 中 **不应该**：
 
 * 包含复杂业务逻辑
 * 直接写 JSX 结构（应交给 UI 层）

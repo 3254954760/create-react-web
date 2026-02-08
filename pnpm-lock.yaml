@@ -15,10 +15,10 @@ importers:
         specifier: ^7.27.6
         version: 7.28.4
       '@create-react-web/hook':
-        specifier: workspace:*
+        specifier: workspace:^1.0.0
         version: link:package/Hook
       '@create-react-web/ui':
-        specifier: workspace:*
+        specifier: workspace:^1.0.0
         version: link:package/UI
       '@sentry/react':
         specifier: ^8.24.0
@@ -32,6 +32,9 @@ importers:
       i18next:
         specifier: ^25.7.3
         version: 25.7.4(typescript@5.9.3)
+      js-cookie:
+        specifier: ^3.0.5
+        version: 3.0.5
       react:
         specifier: ^18.3.1
         version: 18.3.1
@@ -3163,6 +3166,10 @@ packages:
   iterator.prototype@1.1.5:
     resolution: {integrity: sha512-H0dkQoCa3b2VEeKQBOxFph+JAbcrQdE7KC0UkqwpLmv2EC4P41QXP+rqo9wYodACiG5/WM5s9oDApTU8utwj9g==}
     engines: {node: '>= 0.4'}
+
+  js-cookie@3.0.5:
+    resolution: {integrity: sha512-cEiJEAEoIbWfCZYKWhVwFuvPX1gETRYPw6LlaTKoxD3s2AkXzkCjnp6h0V77ozyqj0jakteJ4YqDJT830+lVGw==}
+    engines: {node: '>=14'}
 
   js-tokens@4.0.0:
     resolution: {integrity: sha512-RdJUflcE3cUzKiMqQgsCu06FPu9UdIJO0beYbPhHN4k6apgJtifcoCtT9bcxOpYBtpD2kCM6Sbzg4CausW/PKQ==}
@@ -8746,6 +8753,8 @@ snapshots:
       get-proto: 1.0.1
       has-symbols: 1.1.0
       set-function-name: 2.0.2
+
+  js-cookie@3.0.5: {}
 
   js-tokens@4.0.0: {}
 
